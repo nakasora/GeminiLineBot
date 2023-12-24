@@ -27,4 +27,5 @@ class GeminiLineBot(LineBot):
 if __name__ == "__main__":
     bot = GeminiLineBot(ACCESS_TOKEN, CHANNEL_SECRET)
     app = bot.create_app()
-    app.run(port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
